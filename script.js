@@ -1,6 +1,4 @@
 function getComputerChoice() {
-    /*Create constant array called computerHand, containting 'Rock' 'Paper' 'Scissors'
-    Return a random choice from computerHand*/
     const computerHand = ["Rock", "Paper", "Scissors"];
     return computerHand[Math.floor(Math.random() * computerHand.length)];
 }
@@ -10,11 +8,16 @@ function getPlayerChoice() {
     return playerHand;
 }
 
-function playRound(computerChoice, playerChoice) {
-    if (computerChoice === playerChoice) {
-        return 'Computer Wins'
-    }
-    else {
-        return 'Ok test'
-    }
+const computerChoice = getComputerChoice()
+const playerChoice = getPlayerChoice()
+
+if (computerChoice === playerChoice) {
+    console.log("Draw")
 }
+else if (computerChoice === "Rock" && playerChoice === "Scissors" || computerChoice === "Paper" && playerChoice === "Rock" || computerChoice === "Scissors" && playerChoice === "Paper") {
+    console.log("Computer Win")
+}
+else {
+    console.log("Player Win")
+}
+
