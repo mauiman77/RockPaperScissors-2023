@@ -8,16 +8,25 @@ function getPlayerChoice() {
     return playerHand;
 }
 
-const computerChoice = getComputerChoice()
-const playerChoice = getPlayerChoice()
+function playRound() {
+    const computerChoice = getComputerChoice()
+    const playerChoice = getPlayerChoice()
+    console.log("Player " + playerChoice + " Computer " + computerChoice)
+    if (computerChoice === playerChoice) {
+        console.log("Draw")
+        return "Draw"
+    }
+    else if (computerChoice === "Rock" && playerChoice === "Scissors" || computerChoice === "Paper" && playerChoice === "Rock" || computerChoice === "Scissors" && playerChoice === "Paper") {
+        console.log("Computer Win")
+        return "Computer Win"
+    }
+    else {
+        console.log("Player Win")
+        return "Player Win"
+    }
+}
 
-if (computerChoice === playerChoice) {
-    console.log("Draw")
-}
-else if (computerChoice === "Rock" && playerChoice === "Scissors" || computerChoice === "Paper" && playerChoice === "Rock" || computerChoice === "Scissors" && playerChoice === "Paper") {
-    console.log("Computer Win")
-}
-else {
-    console.log("Player Win")
+function playGame() {
+    for ()
 }
 
