@@ -33,6 +33,16 @@ function addScore(winner) {
     }
 }
 
+function getWinner() {
+    if (computerScore === 5) {
+        alert("You lose!");
+    }
+    else {
+        alert("You win!");
+    }
+    
+}
+
 
 function playRound(player) {
     const computerChoice = getComputerChoice();
@@ -45,13 +55,17 @@ function playRound(player) {
     else if (computerChoice === "Rock" && playerChoice === "Scissors" || computerChoice === "Paper" && playerChoice === "Rock" || computerChoice === "Scissors" && playerChoice === "Paper") {
         console.log("Computer Win")
         addScore("Computer Win")
-        scoreDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     }
     else {
         console.log("Player Win")
         addScore("Player Win")
-        scoreDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     }
+
+    if (playerScore === 5 || computerScore === 5) {
+        getWinner();
+    }
+
+    scoreDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     return;
 }
 
