@@ -40,7 +40,8 @@ function getWinner() {
     else {
         alert("You win!");
     }
-    
+    computerScore = 0;
+    playerScore = 0;
 }
 
 
