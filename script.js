@@ -8,11 +8,11 @@ function getPlayerChoice() {
     return playerHand;
 }
 
-function playRound() {
-    const computerChoice = getComputerChoice()
-    const playerChoice = getPlayerChoice()
-    console.log("Player " + playerChoice + " Computer " + computerChoice)
-    if (computerChoice === playerChoice) {
+function playRound(player) {
+    const computerChoice = getComputerChoice();
+    const playerChoice = player.charAt(0).toUpperCase() + player.slice(1);
+    console.log("Player " + playerChoice + " Computer " + computerChoice);
+    if (computerChoice == playerChoice) {
         console.log("Draw")
         return "Draw"
     }
@@ -33,6 +33,6 @@ const scissorsBtn = document.querySelector('#scissors');
 
 const btns = document.querySelectorAll('.buttons button').forEach((item, index) => {
     item.addEventListener('click', () => {
-        playRound();
+        playRound(item.getAttribute('id'));
     })
 });
