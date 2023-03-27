@@ -26,7 +26,13 @@ function playRound() {
     }
 }
 
-function playGame() {
-    for ()
-}
 
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+const btns = document.querySelectorAll('.buttons button').forEach((item, index) => {
+    item.addEventListener('click', () => {
+        playRound();
+    })
+});
