@@ -21,6 +21,18 @@ function getPlayerChoice() {
     return playerHand;
 }
 
+function addScore(winner) {
+    if (winner === "Player Win") {
+        return playerScore += 1
+    }
+    else if (winner === "Computer Win") {
+        return computerScore += 1;
+    }
+    else {
+        return;
+    }
+}
+
 
 function playRound(player) {
     const computerChoice = getComputerChoice();
@@ -28,18 +40,19 @@ function playRound(player) {
     console.log("Player " + playerChoice + " Computer " + computerChoice);
     if (computerChoice == playerChoice) {
         console.log("Draw")
-        return "Draw"
+        return
     }
     else if (computerChoice === "Rock" && playerChoice === "Scissors" || computerChoice === "Paper" && playerChoice === "Rock" || computerChoice === "Scissors" && playerChoice === "Paper") {
         console.log("Computer Win")
-        scoreDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore += 1}`;
-        return "Computer Win"
+        addScore("Computer Win")
+        scoreDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     }
     else {
         console.log("Player Win")
-        scoreDisplay.textContent = `Player: ${playerScore += 1} Computer: ${computerScore}`;
-        return "Player Win"
+        addScore("Player Win")
+        scoreDisplay.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     }
+    return;
 }
 
 const btns = document.querySelectorAll('.buttons button').forEach((item, index) => {
